@@ -1,4 +1,4 @@
-const itens = [
+export default itens = [
     { id: 1, tipo: 'Camiseta manga curta', tamanho: 'P', cor: 'Branca', valor: 5990, estoque: 3},
     { id: 2, tipo: 'Camiseta manga curta', tamanho: 'GG', cor: 'Verde', valor: 5990, estoque: 4},
     { id: 3, tipo: 'Camiseta manga longa', tamanho: 'M', cor: 'Azul', valor: 6990, estoque: 4},
@@ -19,5 +19,4 @@ const itens = [
     { id: 18, tipo: 'Calça jeans', tamanho: 'M', cor: 'Azul', valor: 14900, estoque: 3},
     { id: 19, tipo: 'Calça jeans', tamanho: 'G', cor: 'Preta', valor: 14900, estoque: 2},
     { id: 20, tipo: 'Calça moletom', tamanho: 'GG', cor: 'Cinza', valor: 9900, estoque: 2}
-
 ]
