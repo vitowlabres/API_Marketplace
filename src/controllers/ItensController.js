@@ -5,7 +5,11 @@ import Item from '../models/Item.js'
 export default class ItensController
 {
     static listaItens = (req, res) => {
-        res.status(200).json(itens)
+
+
+        return res.status(200).json(Item.filterParam(req.query))
+
+
     }
 
     static buscaItem = (req, res) => {
@@ -14,101 +18,83 @@ export default class ItensController
     }
 
     static adicionaItem = (req, res) => {
+
+        //atribui a variavel rb o body enviado no pedido
+        const rb = req.body
+
+        // verifica se o id enviado no body já consta no bd
+        const idItem = Number ( rb.id )
+        const item = Item.findById(idItem)
         
-        //Define as variáveis conforme o pedido enviado
-        const tipo = req.body.tipo
-        const tamanho = req.body.tamanho
-        const cor = req.body.cor
-        const valor = req.body.valor
-        const estoque = req.body.estoque
-        
+        //caso  exista um item no bd com o mesmo id, informa que id já existe
+        if (item) {
+            return res.status(400).json({
+                mensagem: `O id informado já existe`
+            })
+        }
+
         //cria um novo item com as informações do pedido
-        const novoItem = new Item(tipo, tamanho, cor, valor, estoque)
-        
-        //verifica se esse item já existe no banco de dados
-        // if( itens.find(item => item.id == novoItem.id) === true)
-        console.log(itens.find(item => {
-            // console.log(item.id)
-                // === novoItem.id
-        }))
-        // else
-        //     ('não existe')
-            itens.push(novoItem);
-        // res.status(201).send(`Item do tipo ${tipo} adicionado ao marketplace no id ${novoItem.id}`)
-        res.status(201).send(`a`)
+        const novoItem = new Item(rb.categoria, rb.tipo, rb.tamanho, rb.cor, rb.valor, rb.estoque)
+        //adiciona o item ao bd
+        itens.push(novoItem);
+        //informa que o item foi adicionado
+        res.status(201).send(`Item do tipo ${rb.tipo} adicionado ao marketplace no id ${novoItem.id}`)
 
     }
 
     static removeItem = (req, res) => {
-        let index = itens.findIndex(item => item.id == req.params.id)
+        // verifica se o id enviado no parametro já consta no bd
+        const idItem = Number ( req.params.id )
+        const item = Item.findById(idItem)
+        
+        //caso não exista um item no bd com o mesmo id, informa que id não existe
+        if (!item) {
+            return res.status(400).json({
+                mensagem: `O id informado não existe`
+            })
+        }
+        // verifica o index do item enviado como parametro no bd
+        let index = itens.indexOf(item)
+        // remove o item do bd
         itens.splice(index, 1)
+        //informa que o item foi removido
         res.status(200).send(`Item de id ${index + 1} removido com sucesso`)
     }
 
-
-    //verificar se o id existe
-    //verificar se enviou alguma key que não é utilizada
-    //verificar se possui pelo menos uma key, e alterar todas as que foram enviadas
-    //usar o:
-    // update(novasInfos)
-    // {
-    //     for (let campo in novasInfos) {
-    //         if ( typeof)
-    //       this[campo] = novasInfos.[campo]
-    //     }
-    // }
-
     static alteraItem = (req, res) => {
 
-        // olhar todo o código que ele fez pra fazer esse
-        // tentar usar o mesmo do object.keys(usuario) que ele usou
+        // retorna o item do bd que contém o id enviado como parâmetro
         const idItem = Number ( req.params.id )
-
         const item = Item.findById(idItem)
         
+        //caso não exista um item no bd com o mesmo id, informa que não existe
         if (!item) {
             return res.status(400).json({
                 mensagem: `O item informado não existe`
             })
         }
 
+        //veririfica as keys originais do item e as keys enviadas
         const itemKeys = Object.keys( item )
         const bodykeys = Object.keys(req.body)
-        // console.log(Item.proximoID)
-        console.log(`itemKeys: ${itemKeys}`)
-        console.log(item)
+        const wrongKey = bodykeys.some( key => !itemKeys.includes(key) )
 
-        const wrongKey = itemKeys.some( key => !bodykeys.includes(key) )
-
+        //caso alguma key enviada seja incorreta, envia aviso
         if ( wrongKey ) {
-            res.status(400).json("Pedido inválido, as informações enviadas estão incorretas")     
+           return res.status(400).json("Pedido inválido, as informações enviadas estão incorretas")     
         } 
-        
-        //atualiza item - para cada key do body, substitui a mesma key no item já existente no bd
+
+        //atualiza item - para cada key enviada no body, substitui a mesma key no item já existente no bd
         for (let key in req.body)
         {
             item[key] = req.body[key]
         }
-
-        res.status(200).json("Item atualizado") 
+        //informa que o item foi atualizado e mostra a atualização
+        res.status(200).json({
+            mensagem: 'Item atualizado',
+            item: item
+        }) 
         
     }
 
 }
-
-
-// app.get('/', (req, res) => {
-//     res.status(200).send('Curso de Node');
-// })
-
-// app.put('/itens/:id', (req, res) => {
-//     let index = buscaItem(req.params.id);
-//     itens[index].titulo = req.body.titulo;
-//     res.status(200).json(itens)
-// })
-
-
-
-// function buscaItem(id) {
-//     return itens.findIndex(item => item.id == id)
-// }

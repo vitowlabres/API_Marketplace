@@ -2,24 +2,21 @@ import itens from '../../bd.js'
 
 export default class Item
 {
-    static proximoID = itens[itens.length-1].id
     static all = itens
-    // //função para gerar ID aleatório
-    // static criaID(tipo, tamanho, cor, estoque) {
-    //     let idCriado =
-    //         tipo.toLowerCase().substring(0, 1)
-    //         + tamanho.toLowerCase().substring(0, 1)
-    //         + cor.toLowerCase().substring(0, 1)
-    //         + estoque
-    //     let num = 1
-    //     while (itens.find(item => item.id === num+idCriado)) {
-    //         num++
-    //     }
-    //     return num+idCriado
-    // }
+
+    static proximoID() {
+        let maxID = 0
+        //varre o bd e verifica qual o maior ID encontrado
+        Item.all.map(item => {
+            if (item.id > maxID)
+                maxID = item.id
+        })
+        return maxID + 1
+    } 
 
     static findById( id )
     {
+        //procura no bd qual produto tem o id igual ao enviado no parametro
         const item = Item.all.find(produto => produto.id === id)
         
         if (item !== undefined) {
@@ -29,9 +26,10 @@ export default class Item
         }
     }
 
-    constructor(tipo, tamanho, cor, valor, estoque)
+    constructor(categoria, tipo, tamanho, cor, valor, estoque)
     {
-        this.id = Item.proximoID++
+        this.id = Item.proximoID()
+        this.categoria = categoria
         this.tipo = tipo
         this.tamanho = tamanho
         this.cor = cor
@@ -39,9 +37,18 @@ export default class Item
         this.estoque = estoque
     }
 
-    static update( body )
-    {
+    static filterParam(query) {
+        
+        const keys = Object.keys(query)
+        let resultado = Item.all
 
+        //para cada key enviada como parametro, vai adicionando um filtro ao bd, e devolve o array com o filtro  final
+        for (const key in keys) {
+            resultado = resultado.filter(i => (String(i[keys[key]]) === query[keys[key]]))
+        }
+
+        return resultado
+ 
     }
 
 }

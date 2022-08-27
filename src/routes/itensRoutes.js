@@ -9,9 +9,8 @@ export const app = express()
 
 app.use(express.json())
 
-//Aplica um método em cada uma das rotas
+//Aplica uma propriedade da classe ItensController em cada uma das rotas
 
-//Para a rota /itens, é chamada a classe ItensController
 app.get('/itens', ItensController.listaItens)
 
 app.get('/itens/:id', ItensController.buscaItem)
