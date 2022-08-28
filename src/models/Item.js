@@ -17,7 +17,7 @@ export default class Item
     static findById( id )
     {
         //procura no bd qual produto tem o id igual ao enviado no parametro
-        const item = Item.all.find(produto => produto.id === id)
+        const item = Item.all.find(produto => String(produto.id) === String(id))
         
         if (item !== undefined) {
             return item
@@ -37,17 +37,13 @@ export default class Item
         this.estoque = estoque
     }
 
-    static filterParam(query) {
+    static filterParam(body) {
         
-        const keys = Object.keys(query)
-        let resultado = Item.all
-
-        //para cada key enviada como parametro, vai adicionando um filtro ao bd, e devolve o array com o filtro  final
-        for (const key in keys) {
-            resultado = resultado.filter(i => (String(i[keys[key]]) === query[keys[key]]))
-        }
-
-        return resultado
+        const keys = Object.keys(body)
+        // //para cada key enviada como parametro, vai adicionando um filtro ao bd, e devolve o array com o filtro  final
+        const response = Item.all.filter((item) => keys.every((key) => String(item[key]).toLowerCase() === String(body[key]).toLowerCase()))
+        
+        return response
  
     }
 

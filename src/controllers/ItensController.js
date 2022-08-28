@@ -5,16 +5,18 @@ import Item from '../models/Item.js'
 export default class ItensController
 {
     static listaItens = (req, res) => {
-
-
+    
         return res.status(200).json(Item.filterParam(req.query))
-
 
     }
 
     static buscaItem = (req, res) => {
-        let index = itens.findIndex(item => item.id == req.params.id)
-        res.status(200).json(itens[index]);
+        
+        if (!Item.findById(req.params.id)){
+            res.status(400).json("O id informado não existe");
+        } else {
+            res.status(200).json(Item.findById(req.params.id));
+        }
     }
 
     static adicionaItem = (req, res) => {
@@ -32,6 +34,32 @@ export default class ItensController
                 mensagem: `O id informado já existe`
             })
         }
+
+        //verifica as keys originais do item e as keys enviadas
+        const itemKeys = Object.keys(Item.all[0])
+        const bodykeys = Object.keys(req.body)
+
+        //caso alguma key enviada seja incorreta, envia aviso
+        const wrongKey = bodykeys.some( key => !itemKeys.includes(key) )
+
+        //exceto o id, verifica todas as keys necessárias, e confere se alguma não está incluída no body
+        let missingKey = false
+        itemKeys.map(key => {
+
+            if (key !== 'id' && !bodykeys.includes(key)) {
+                missingKey = true
+            }
+
+        })
+    
+        //caso alguma key enviada seja incorreta, envia aviso
+        if ( wrongKey || missingKey ) {
+            return res.status(400).json("Pedido inválido, as informações enviadas estão incorretas")     
+        } 
+        if (Item.filterParam(req.body).length > 0) {
+            return res.status(400).json("Esse item já existe")     
+        }
+        
 
         //cria um novo item com as informações do pedido
         const novoItem = new Item(rb.categoria, rb.tipo, rb.tamanho, rb.cor, rb.valor, rb.estoque)
@@ -70,7 +98,7 @@ export default class ItensController
         //caso não exista um item no bd com o mesmo id, informa que não existe
         if (!item) {
             return res.status(400).json({
-                mensagem: `O item informado não existe`
+                mensagem: `O id informado não existe`
             })
         }
 
