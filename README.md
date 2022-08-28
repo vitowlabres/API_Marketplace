@@ -61,7 +61,56 @@ Se o produto não existir: Retornará o status 201 Created com a mensagem: Item 
 
                 
 </ul>
-    </li>
+   </li>
+    <h2><li>Listar item</h2>
+      <ul><li>método utilizado: GET</li>
+        <li>rota : http://localhost:3000/itens</li>
+        <img src=https://user-images.githubusercontent.com/109998315/187091932-6e577c2c-fa28-4b7a-9405-21f50efb8f64.png>
+        </li></ul>
+    <h2><li>Buscar item</h2> 
+       <ul><li>método utilizado: GET</li>
+       <li>rota : http://localhost:3000/itens/id</li>
+       <img src=https://user-images.githubusercontent.com/109998315/187092158-867f47b1-405b-4e76-ac94-34216883c8f2.png>
+  </ul>
+       <h2><li>Alterar item</h2>
+       <ul>   <li>método utilizado: PUT</li>
+              <li>rota : http://localhost:3000/itens</li>
+     <p><b><li> Se a validação não encontrar o produto, o sistema retornará:</p></b>
+       Status 400 – Bad Request com a mensagem: O item informado não existe.</li>
+     <p><b><li>Se a validação encontrar o produto, o sistema retornará:</p></b></li>
+         <ul>
+            <li>id: Number;  
+            <li>categoria: String</li>
+            <li>tipo: String</li>
+            <li>tamanho: Number</li>
+            <li>cor: String</li>
+            <li>valor: Number</li>
+            <li>estoque: Number</li>
+          </ul>
+<img src=https://user-images.githubusercontent.com/109998315/187092619-6041a3c5-b2b4-4849-8dc2-fb997659cb22.png>
+<li>E a mensagem: Item atualizado</li> 
+<li>Status 200 - OK</li>
+</ul>
+</ul>
+
+<ul>
+      <h2><li>Excluir item</h2>
+       <ul> <li>método utilizado: DELETE</li>
+            <li>rota : http://localhost:3000/itens/id</li>
+            <li>Se não existir: Retornará o status 400 - Bad Request com a mensagem: O item informado não existe.</li>
+            <li> Se existir: Retornará o status 200 – OK com a mensagem: Item de id (número) removido com sucesso.</li>
+       </ul>
+ <img src=https://user-images.githubusercontent.com/109998315/187092915-a35a439c-8283-4c53-9f32-eaeb1037b3f4.png>
+
+ 
+
+       
+
+
+       
+    
+  
+
 
 
 
