@@ -101,8 +101,16 @@ Se o produto não existir: Retornará o status 201 Created com a mensagem: Item 
             <li> Se existir: Retornará o status 200 – OK com a mensagem: Item de id (número) removido com sucesso.</li>
        </ul>
  <img src=https://user-images.githubusercontent.com/109998315/187092915-a35a439c-8283-4c53-9f32-eaeb1037b3f4.png>
-
- 
+  
+  
+  <h3> Ana Raquel Hermes</h3>
+  <b>https://github.com/AnaHermes</b> 
+  <h3>  Larissa Vardiero </h3> 
+  <b>https://github.com/LariStar</b>
+  <h3> Marcelo Augusto Silva</h3>
+  <b>https://github.com/Wowcelo</b>
+  <h3>   Vitor Labres </h3> 
+  <b>https://github.com/vitowlabres</b>
 
        
 
