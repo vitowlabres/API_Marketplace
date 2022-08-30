@@ -1,0 +1,129 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: white;
+  background-color: rgb(192, 218, 226);
+  font-size: 100%;
+}
+.header {
+  margin: 0;
+  display: block;
+  flex-direction: column;
+  font-family: sans-serif;
+  color: rgb(62, 80, 94);
+}
+.header-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid steelblue;
+}
+.name {
+  justify-self: center;
+}
+.button {
+  background-color: rgb(192, 218, 226);
+  border: none;
+  border-radius: 10px;
+  font-size: 100%;
+  color: steelblue;
+  position: absolute;
+  right: 1rem;
+  align-self: center;
+  justify-self: flex-start;
+}
+.button:hover,
+.link:hover {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: rgb(178, 213, 224);
+}
+
+@media (min-width: 1000px) {
+  .button {
+    display: none;
+  }
+}
+
+.menu {
+  display: none;
+}
+
+.menu-style {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  list-style: none;
+}
+
+@media (min-width: 1000px) {
+  .menu {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+  }
+  .list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+}
+
+.line {
+  background-color: rgb(181, 213, 223);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-bottom: 1px solid steelblue;
+  font-size: 80%;
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  .line {
+    background-color: rgb(192, 218, 226);
+    border-bottom: none;
+    font-size: 90%;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  font-family: sans-serif;
+  color: rgb(62, 80, 94);
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  max-width: 100%;
+  box-shadow: rgb(150, 174, 182) 2.4px 2.4px 3.2px,
+    rgb(150, 174, 182) -2.4px 2.4px 3.2px;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.texto {
+  font-weight: bold;
+}
+.categoria {
+  font-style: italic;
+}
