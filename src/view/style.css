@@ -30,29 +30,32 @@ body {
 .name {
   justify-self: center;
 }
-form{
-  display:none;
+.form {
+  display: none;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
   align-self: center;
   font-family: sans-serif;
   color: rgb(62, 80, 94);
-  margin: 2rem 2rem 0 2rem
+  margin: 2rem 2rem 0 2rem;
 }
-.form-style{
+.form-style {
   display: flex;
 }
-.form-box{
+.form-box {
   display: flex;
   gap: 0.25rem;
   justify-content: flex-start;
 }
-.legend-box{
+.legend-box {
   font-weight: bold;
 }
 
-.categoria, .tipo, .tamanho, .cor{
+.categoria,
+.tipo,
+.tamanho,
+.cor {
   background-color: rgb(192, 218, 226);
   color: rgb(62, 80, 94);
   border-radius: 10px;
@@ -80,20 +83,20 @@ form{
   align-self: center;
   justify-self: flex-start;
 }
-.img-filter{
+.img-filter {
   max-width: 25px;
 }
-.button-search{
+.button-search {
   background-color: rgb(192, 218, 226);
   border: none;
   border-radius: 10px;
   color: steelblue;
- 
 }
-.img-search{
+.img-search {
   max-width: 15px;
 }
-.button-menu:hover, .button-filter:hover,
+.button-menu:hover,
+.button-filter:hover,
 .link:hover {
   cursor: pointer;
   font-weight: bold;
