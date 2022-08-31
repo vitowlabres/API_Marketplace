@@ -1,27 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marketplace Virtual</title>
     <link rel="stylesheet" href="./style.css" type="text/css" />
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
       <div class="header-title">
-        <button class="button">+</button>  
+        <button class="button-filter">
+          <img class="img-filter" src="./img/filter.png" alt="imagem filtro" />
+        </button>
+        <button class="button-menu">
+          <img src="./img/menu.png" alt="menu" />
+        </button>
         <p class="name">Marketplace Virtual</p>
       </div>
-        <nav class="menu">
-            <ul class="list">
-                <li class="line"><a class="link">Home</a></li>
-                <li class="line"><a class="link">Adicionar item</a></li>
-                <li class="line"><a class="link">Documentação API</a></li>
-            </ul>
-        </nav>
+      <nav class="menu">
+        <ul class="list">
+          <li class="line"><a class="link">Home</a></li>
+          <li class="line"><a class="link">Gestão de itens</a></li>
+          <li class="line"><a class="link">Documentação API</a></li>
+        </ul>
+      </nav>
     </header>
-    <main class="main">
+    <form class="form">
+      <div class="form-box">
+        <legend class="legend-box">Categoria:</legend>
+        <select class="categoria">
+          <option></option>
+          <option>camiseta</option>
+          <option>Noite</option>
+        </select>
+      </div>
+      <div class="form-box">
+        <legend class="legend-box">Tipo:</legend>
+        <select class="tipo">
+          <option></option>
+          <option>Tarde</option>
+          <option>Noite</option>
+        </select>
+      </div>
+      <div class="form-box">
+        <legend class="legend-box">Tamanho:</legend>
+        <select class="tamanho">
+          <option></option>
+          <option>Tarde</option>
+          <option>Noite</option>
+        </select>
+      </div>
+      <div class="form-box">
+        <legend class="legend-box">Cor:</legend>
+        <select class="cor">
+          <option></option>
+          <option>Tarde</option>
+          <option>Noite</option>
+        </select>
+      </div>
+      <button class="button-search">
+        <img class="img-search" src="./img/search.png" alt="search-image" />
+      </button>
+    </form>
+    <main class="itens">
+      <!-- <div class="button-list">
+        <button class="botao-todos"></button>
+        <button class="botao-geral"></button>
+      </div> -->
+
+      <!-- <div class="itens"> -->
+
       <!-- <div class="item">
         <p class="texto">Item:</p>
         <p class="categoria">camiseta</p>
@@ -31,197 +80,10 @@
         <p class="valor">5990</p>
         <p class="estoque">3</p>
         <p class="id">id: 1</p>
-      </div>
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta </p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>      
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>      
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>      
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>      
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>      
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>      
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>      
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>      
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
-      </div>
-      <div class="item">
-        <p class="texto">Item:</p>
-        <p class="categoria">camiseta</p>
-        <p class="tipo">camiseta manga curta</p>
-        <p class="tamanho">p</p>
-        <p class="cor">branco</p>
-        <p class="valor">5990</p>
-        <p class="estoque">3</p>
-        <p class="id">id: 1</p>
       </div> -->
+
+      <!-- </div> -->
     </main>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>

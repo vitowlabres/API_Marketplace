@@ -7,6 +7,8 @@ body {
   background-color: white;
   background-color: rgb(192, 218, 226);
   font-size: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .header {
   margin: 0;
@@ -28,7 +30,35 @@ body {
 .name {
   justify-self: center;
 }
-.button {
+form{
+  display:none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-self: center;
+  font-family: sans-serif;
+  color: rgb(62, 80, 94);
+  margin: 2rem 2rem 0 2rem
+}
+.form-style{
+  display: flex;
+}
+.form-box{
+  display: flex;
+  gap: 0.25rem;
+  justify-content: flex-start;
+}
+.legend-box{
+  font-weight: bold;
+}
+
+.categoria, .tipo, .tamanho, .cor{
+  background-color: rgb(192, 218, 226);
+  color: rgb(62, 80, 94);
+  border-radius: 10px;
+  border: none;
+}
+.button-menu {
   background-color: rgb(192, 218, 226);
   border: none;
   border-radius: 10px;
@@ -39,7 +69,31 @@ body {
   align-self: center;
   justify-self: flex-start;
 }
-.button:hover,
+.button-filter {
+  background-color: rgb(192, 218, 226);
+  border: none;
+  border-radius: 10px;
+  max-width: 100%;
+  color: steelblue;
+  position: absolute;
+  left: 1rem;
+  align-self: center;
+  justify-self: flex-start;
+}
+.img-filter{
+  max-width: 25px;
+}
+.button-search{
+  background-color: rgb(192, 218, 226);
+  border: none;
+  border-radius: 10px;
+  color: steelblue;
+ 
+}
+.img-search{
+  max-width: 15px;
+}
+.button-menu:hover, .button-filter:hover,
 .link:hover {
   cursor: pointer;
   font-weight: bold;
@@ -47,7 +101,7 @@ body {
 }
 
 @media (min-width: 1000px) {
-  .button {
+  .button-menu {
     display: none;
   }
 }
@@ -96,7 +150,7 @@ body {
   }
 }
 
-.main {
+.itens {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -113,7 +167,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  gap: 0.25rem;
   width: 15rem;
   max-width: 100%;
   box-shadow: rgb(150, 174, 182) 2.4px 2.4px 3.2px,
@@ -121,9 +176,14 @@ body {
   border-radius: 10px;
   padding: 1rem;
 }
-.texto {
-  font-weight: bold;
+.item > p:not(:first-child) {
+  padding-left: 1rem;
 }
-.categoria {
+.item-texto {
+  padding-bottom: 0.5rem;
+  font-weight: bold;
+  align-self: center;
+}
+.item-categoria {
   font-style: italic;
 }
