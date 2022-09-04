@@ -30,8 +30,8 @@ async function leForm(filtro, metodo) {
             'Content-Type': 'application/json',
         }
     }
-    await fetch(`http://localhost:3000/itens${filtro}`,settings)
-    // console.log(await enviaItem.json())
+    const a = await fetch(`http://localhost:3000/itens${filtro}`,settings)
+    console.log(await a.json())
 }
 
 //EVENTOS:
@@ -43,11 +43,12 @@ buttonMenu.addEventListener('click', () => {
 
 buttonSend.addEventListener('click', () => {
     let action = document.querySelector('input[name="action"]:checked');
-
-    switch (action.value) {
-        case 'add': leForm('', 'POST')
-        case 'update': leForm(`/${formId.value}`, 'PUT')
-        case 'delete': leForm(`/${formId.value}`, 'DELETE')
+    if (action.value === 'add') {
+        leForm('', 'POST')
+    } else if (action.value === 'update') {
+        leForm(`/${formId.value}`, 'PUT')
+    } else if (action.value === 'delete') {
+        leForm(`/${formId.value}`, 'DELETE')
     }
     
 })
