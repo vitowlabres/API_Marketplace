@@ -82,11 +82,15 @@ export default class Item
     
         //caso alguma key enviada seja incorreta, envia aviso
         if ( wrongKey || missingKey ) {
-            return res.status(400).json("Pedido inválido, as informações enviadas estão incorretas")     
+            return res.status(400).json({
+                mensagem: "Pedido inválido, as informações enviadas estão incorretas"
+            })     
         } 
         //verifica se o item já existe no bd
         if (Item.filterParam(req.body).length > 0) {
-            return res.status(400).json("Esse item já existe")     
+            return res.status(400).json({
+                mensagem: "Esse item já existe"
+            })     
         }
         
 
@@ -97,7 +101,9 @@ export default class Item
         itens.push(novoItem);
 
         //retorna o item que foi adicionado
-        return res.status(201).send(`Item do tipo ${rb.tipo} adicionado ao marketplace no id ${novoItem.id}`)
+        return res.status(201).json({
+            mensagem: `Item do tipo ${rb.tipo} adicionado ao marketplace no id ${novoItem.id}`
+        })
 
     }
 

@@ -2,9 +2,6 @@
   padding: 0;
   margin: 0;
 }
-/* html{
-  max-width: 100vw;
-} */
 body {
   background-color: white;
   background-color: rgb(192, 218, 226);
@@ -44,7 +41,7 @@ body {
   align-self: center;
   justify-self: flex-start;
 }
-.button-menu:hover,
+.button-menu:hover, .button-form-send:hover,
 .link:hover {
   cursor: pointer;
   font-weight: bold;
@@ -114,29 +111,21 @@ body {
   flex-direction: column;
   /* max-width: 60rem; */
 }
-/* .form-gestao {
+.form-gestao {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 2rem;
   align-self: center;
-
+  max-width: 40rem;
+  width: 80%;
   font-family: sans-serif;
   color: rgb(62, 80, 94);
   margin: 2rem;
-} */
-.form-gestao {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-self: flex-start;
-  max-width: 25rem;
-  min-width: 10rem;
-  font-family: sans-serif;
-  color: rgb(62, 80, 94);
-  margin: 2rem 2rem 0 2rem;
+}
+@media (min-width: 1000px) {
+  .form-gestao{
+   margin: 5rem 2rem 2rem 2rem;
+  }
 }
 .form-div{
   display: flex;
@@ -144,10 +133,7 @@ body {
   gap: 0.4rem;
   justify-content: flex-start;
   width: 100%;
-}
-.form-box {
-  display: flex;
-  justify-content: flex-start;
+
 }
 .label-box {
   font-weight: bold;
@@ -155,11 +141,49 @@ body {
 }
 .categoria-form, .tipo-form, 
 .cor-form, .tamanho-form, 
-.valor-form, .estoque-form{
+.valor-form, .estoque-form, .id-form{
   background-color: rgb(192, 218, 226);
   color: rgb(62, 80, 94);
   border-radius: 10px;
   border-bottom: 1px solid steelblue;
   max-width: 100%;
   height: 2rem;
+}
+
+.button-form-send {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgb(192, 218, 226);
+  border: none;
+  border-radius: 10px;
+  font-size: 100%;
+  justify-self: flex-end;
+  font-family: sans-serif;
+  color: rgb(62, 80, 94);
+  font-weight: bold;
+  margin-right: 2rem;
+}
+
+.linha-final{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+fieldset{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: sans-serif;
+  color: rgb(62, 80, 94);
+  font-weight: bold;
+  border: none;
+  margin-left: 0.2rem;
+}
+.legend-method{
+  margin-bottom: 1rem;
 }

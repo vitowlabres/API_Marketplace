@@ -19,11 +19,11 @@ const itens = [
     { id: 18, categoria: 'calça', tipo: 'jeans', tamanho: 'm', cor: 'azul', valor: 14900, estoque: 3},
     { id: 19, categoria: 'calça', tipo: 'jeans', tamanho: 'g', cor: 'preto', valor: 14900, estoque: 2},
     { id: 20, categoria: 'calça', tipo: 'moletom', tamanho: 'gg', cor: 'cinza', valor: 9900, estoque: 2 },
-    { id: 20, categoria: 'calça', tipo: 'moletom', tamanho: 'gg', cor: 'cinza', valor: 9900, estoque: 2},
-    { id: 20, categoria: 'camiseta', tipo: 'manga curta', tamanho: 'g', cor: 'verde', valor: 9900, estoque: 3},
-    { id: 20, categoria: 'camiseta', tipo: 'manga curta', tamanho: 'g', cor: 'rosa', valor: 9900, estoque: 2},
-    { id: 20, categoria: 'camiseta', tipo: 'manga longa', tamanho: 'p', cor: 'cinza', valor: 9900, estoque: 2},
-    { id: 20, categoria: 'camiseta', tipo: 'manga longa', tamanho: 'p', cor: 'branco', valor: 9900, estoque: 2}
+    { id: 21, categoria: 'calça', tipo: 'moletom', tamanho: 'gg', cor: 'cinza', valor: 9900, estoque: 2},
+    { id: 22, categoria: 'camiseta', tipo: 'manga curta', tamanho: 'g', cor: 'verde', valor: 9900, estoque: 3},
+    { id: 23, categoria: 'camiseta', tipo: 'manga curta', tamanho: 'g', cor: 'rosa', valor: 9900, estoque: 2},
+    { id: 24, categoria: 'camiseta', tipo: 'manga longa', tamanho: 'p', cor: 'cinza', valor: 9900, estoque: 2},
+    { id: 25, categoria: 'camiseta', tipo: 'manga longa', tamanho: 'p', cor: 'branco', valor: 9900, estoque: 2}
 ]
 
 export default itens

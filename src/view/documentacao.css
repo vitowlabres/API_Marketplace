@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: white;
+  background-color: rgb(192, 218, 226);
+  font-size: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin: 0;
+  display: block;
+  flex-direction: column;
+  font-family: sans-serif;
+  color: rgb(62, 80, 94);
+}
+
+.header-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid steelblue;
+}
+
+.button-menu {
+  background-color: rgb(192, 218, 226);
+  border: none;
+  border-radius: 10px;
+  font-size: 100%;
+  color: steelblue;
+  position: absolute;
+  right: 1rem;
+  align-self: center;
+  justify-self: flex-start;
+}
+
+
+
+.button-menu:hover,
+.link:hover, .button-download:hover {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: rgb(178, 213, 224);
+}
+@media (min-width: 1000px) {
+  .button-menu {
+    display: none;
+  }
+}
+
+.menu {
+  display: none;
+}
+
+.menu-style {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.list {
+  list-style: none;
+  
+}
+
+@media (min-width: 1000px) {
+  .menu {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+  }
+  .list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+}
+
+.line {
+  background-color: rgb(181, 213, 223);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-bottom: 1px solid steelblue;
+  font-size: 80%;
+  text-align: center;	
+}
+
+.line a{
+  text-decoration: none;
+  color: rgb(62, 80, 94);
+}
+
+@media (min-width: 1000px) {
+  .line {
+    background-color: rgb(192, 218, 226);
+    border-bottom: none;
+    font-size: 90%;
+	  text-decoration: none;
+    
+  }
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+@media (min-width: 1000px) {
+  .main {
+      padding: 10rem;  
+  }
+}
+.button-download {
+  background-color: rgb(192, 218, 226);
+  border: none;
+  color: rgb(62, 80, 94);
+  font-weight: bold;
+  font-size: 100%;
+}
+.link-download {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:1rem;
+  flex-wrap: wrap;
+  text-align: start;
+  text-decoration: none;
+  color: rgb(62, 80, 94);
+  font-weight: bold;
+}
+@media (min-width: 1000px) {
+  .link-download {
+      flex-direction: row;    
+  }
+}
+.img-download {
+  max-width: 15px;
+}

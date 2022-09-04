@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Gestão de Itens | Marketplace Virtual</title>
-    <link rel="stylesheet" href="style_gestao.css" />
+    <link rel="stylesheet" href="gestao.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <header class="header">
@@ -15,11 +16,13 @@
       </div>
       <nav class="menu">
         <ul class="list">
-          <li class="line"><a class="link" href="./index.html">Home</a></li>
+          <li class="line"><a class="link" href="./home.html">Home</a></li>
           <li class="line">
             <a class="link" href="./gestao.html">Gestão de itens</a>
           </li>
-          <li class="line"><a class="link">Documentação API</a></li>
+          <li class="line">
+            <a class="link" href="./documentacao.html">Documentação API</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -43,14 +46,57 @@
         </div>
         <div class="form-div">
           <label for="type" class="label-box">Valor:</label>
-          <input type="text" id="type" class="valor-form" />
+          <input type="number" id="type" class="valor-form" />
         </div>
         <div class="form-div">
           <label for="cat" class="label-box">Estoque:</label>
-          <input type="text" id="cat" class="estoque-form" />
+          <input type="number" id="cat" class="estoque-form" />
+        </div>
+        <div class="form-div">
+          <label for="cat" class="label-box"
+            >ID (preencher somente para alterar e deletar itens):</label
+          >
+          <input type="number" id="cat" class="id-form" />
+        </div>
+        <div class="linha-final">
+          <fieldset>
+            <legend class="legend-method">O que deseja fazer?</legend>
+            <label for="radio-email"
+              ><input
+                type="radio"
+                name="action"
+                value="add"
+                id="radio-add"
+                checked
+              />
+              Adicionar item</label
+            >
+            <label for="radio-telefone"
+              ><input
+                type="radio"
+                name="action"
+                value="update"
+                id="radio-update"
+              />
+              Alterar item</label
+            >
+            <label for="radio-whatsapp"
+              ><input
+                type="radio"
+                name="action"
+                value="delete"
+                id="radio-delete"
+              />
+              Deletar item</label
+            >
+          </fieldset>
+          <button class="button-form-send">
+            Send
+            <img src="./img/send.png" alt="send form" />
+          </button>
         </div>
       </div>
-      <!-- <div>oi</div> -->
     </main>
+    <script src="gestao.js"></script>
   </body>
 </html>
