@@ -4,6 +4,16 @@ export default class Item
 {
     static all = itens
 
+    constructor(categoria, tipo, tamanho, cor, valor, estoque) {
+        this.id = Item.proximoID()
+        this.categoria = categoria
+        this.tipo = tipo
+        this.tamanho = tamanho
+        this.cor = cor
+        this.valor = valor
+        this.estoque = estoque
+    }
+
     static proximoID() {
         let maxID = 0
         //varre o bd e verifica qual o maior ID encontrado
@@ -14,8 +24,7 @@ export default class Item
         return maxID + 1
     } 
 
-    static findById( id )
-    {
+    static findById( id ) {
         //procura no bd qual produto tem o id igual ao enviado no parametro
         const item = Item.all.find(produto => String(produto.id) === String(id))
         
@@ -26,29 +35,14 @@ export default class Item
         }
     }
 
-    constructor(categoria, tipo, tamanho, cor, valor, estoque)
-    {
-        this.id = Item.proximoID()
-        this.categoria = categoria
-        this.tipo = tipo
-        this.tamanho = tamanho
-        this.cor = cor
-        this.valor = valor
-        this.estoque = estoque
-    }
-
     static filterParam(body) {
-        
         const keys = Object.keys(body)
         // //para cada key enviada como parametro, vai adicionando um filtro ao bd, e devolve o array com o filtro  final
         const response = Item.all.filter((item) => keys.every((key) => String(item[key]).toLowerCase() === String(body[key]).toLowerCase()))
-        
         return response
- 
     }
 
     static addItem(req, res) {
-            
         //atribui a variavel rb o body enviado no pedido
         const rb = req.body   
 
@@ -73,26 +67,24 @@ export default class Item
         //exceto o id, verifica todas as keys necessárias, e confere se alguma não está incluída no body
         let missingKey = false
         itemKeys.map(key => {
-
             if (key !== 'id' && !bodykeys.includes(key)) {
                 missingKey = true
             }
-
         })
     
         //caso alguma key enviada seja incorreta, envia aviso
         if ( wrongKey || missingKey ) {
             return res.status(400).json({
                 mensagem: "Pedido inválido, as informações enviadas estão incorretas"
-            })     
-        } 
+            })
+        }
+
         //verifica se o item já existe no bd
         if (Item.filterParam(req.body).length > 0) {
             return res.status(400).json({
                 mensagem: "Esse item já existe"
             })     
         }
-        
 
         //cria um novo item com as informações do pedido
         const novoItem = new Item(rb.categoria, rb.tipo, rb.tamanho, rb.cor, rb.valor, rb.estoque)
@@ -122,7 +114,6 @@ export default class Item
 
     //verifica se as keys enviadas no body existem
     static keysReais(req) {
-
         // retorna o item do bd que contém o id enviado como parâmetro
         const idItem = Number ( req.params.id )
         const item = Item.findById(idItem)
@@ -141,7 +132,6 @@ export default class Item
     }
 
     static altera(req) {
-    
         // retorna o item do bd que contém o id enviado como parâmetro
         const idItem = Number ( req.params.id )
         const item = Item.findById(idItem)

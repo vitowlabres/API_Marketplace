@@ -3,13 +3,13 @@ import Item from '../models/Item.js'
 
 export default class ItensController
 {
-    static listaItens = (req, res) => {
+    static listaItens (req, res){
     
         return res.status(200).json(Item.filterParam(req.query))
 
     }
 
-    static buscaItem = (req, res) => {
+    static buscaItem (req, res){
         
         if (!Item.findById(req.params.id)){
             res.status(400).json({
@@ -20,13 +20,13 @@ export default class ItensController
         }
     }
 
-    static adicionaItem = (req, res) => {
+    static adicionaItem (req, res){
         
         return (Item.addItem(req, res))
     
     }
 
-    static removeItem = (req, res) => {
+    static removeItem (req, res){
 
         if (Item.confereBD(req) === false) {
             return res.status(400).json({
@@ -37,7 +37,7 @@ export default class ItensController
         }
     }
 
-    static alteraItem = (req, res) => {
+    static alteraItem (req, res){
 
         //confere se o item informado existe
         if (Item.confereBD(req) === false) {

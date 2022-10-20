@@ -37,8 +37,6 @@ async function listaTodos(filtro){
     divItens.innerHTML=``
     const conteudoTotal = await fetch(`http://localhost:3000/itens${filtro}`)
     return await conteudoTotal.json()
-    
-    // console.log(`dados: ${JSON.stringify(dados[0].id)}`)
 }
 
 //preenche os options
@@ -70,7 +68,6 @@ function leFiltros() {
         }
     }
     return filtro
-    // listaTodos(filtro)
 }
 
 preencheItens("")
